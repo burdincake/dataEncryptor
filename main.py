@@ -5,7 +5,7 @@ def setPassword():
     a = file.read()
 
     if a=="":
-        print('insert new Password: ', end='')
+        print('insert new Password: ', end=" ")
         password = input()
         password = password.encode("UTF-8")
         x = 1
@@ -24,7 +24,7 @@ def setPassword():
             inputer = base64.urlsafe_b64encode(bytes(inputer, 'UTF-8')).decode("UTF-8")
 
         if a == inputer:
-            print('insert new Password: ', end='')
+            print('insert new Password: ', end="")
             password = input()
             password = password.encode("UTF-8")
             x = 1
@@ -41,7 +41,7 @@ def setPassword():
     login()
     file.close()
 def menu():
-    print("Enter among (View / Append / Reset): ",end="")
+    print("Enter among (View / Append / Reset / set new password): ",end="")
     enter = input()
 
     if enter == "view" or enter == "View":
@@ -66,6 +66,8 @@ def menu():
         filemake.close()
         print("encrypted append Success :)")
         menu()
+    elif enter == "set new password" or enter == "Set new password":
+        setPassword()
     elif enter == "reset" or enter == "Reset":
         print("Do you want to reset your hash script? (Yes / No): ")
         answer = input()
@@ -85,8 +87,6 @@ def menu():
 
 
 def login():
-    print("Enter ID: ",end="")
-    id = input()
     print("Enter Password: ",end = "")
     e = input()
     enteredPwd = e.encode("UTF-8")
@@ -99,17 +99,13 @@ def login():
     realPwd = passfile.read()
     if realPwd == enteredPwd:
         print("Welcome hidden user :)")
-
-
-        
-
         menu()
     else:
         print("Bye")
 
 
 
-# setPassword()
+
 #login()
 
 a = """
